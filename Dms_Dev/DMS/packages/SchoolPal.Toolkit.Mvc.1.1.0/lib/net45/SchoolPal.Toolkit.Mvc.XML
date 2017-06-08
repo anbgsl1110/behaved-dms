@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SchoolPal.Toolkit.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions">
+            <summary>
+            HtmlHelper扩展
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions.VersionQueryParamName">
+            <summary>
+            版本参数名，不能为空字符串，默认为'v'
+            </summary>
+        </member>
+        <member name="F:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions.FixTildeIfMiss">
+            <summary>
+            表示是否在缺失的情况下在url开始填补"~"，从web.config或app.config的appSettings中取key为‘FixTildeIfMiss’的值,默认false
+            该参数仅当ResourceDomain不为空时有效
+            </summary>
+        </member>
+        <member name="F:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions.Version">
+            <summary>
+            当前版本，从web.config或app.config的appSettings中取key为‘Version’的值，默认null
+            例如v1.1
+            </summary>
+        </member>
+        <member name="F:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions.ResourceDomain">
+            <summary>
+            当前版本，从web.config或app.config的appSettings中取key为‘ResourceDomain’的值，结尾不带斜杠，默认null
+            例如 http://mydomain.com  http://mydomain.com/mydir  
+            下列写法兼容http及https： //mydomain.com  //mydomain.com/mydir
+            </summary>
+        </member>
+        <member name="F:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions.ApplicationVirtualPath">
+            <summary>
+            当前应用程序虚拟目录
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions.RenderScript(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            输出脚本
+            </summary>
+            <param name="html">HtmlHelper实例</param>
+            <param name="url">以"~/"或"/"为开始的url,推荐以"~/"开头</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions.RenderCss(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            输出样式表
+            </summary>
+            <param name="html">HtmlHelper实例</param>
+            <param name="url">以"~/"或"/"为开始的url,推荐以"~/"开头</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions.RenderUrl(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            给路径添加版本号及ResourceDomain
+            </summary>
+            <param name="html">HtmlHelper实例</param>
+            <param name="url">以"~/"或"/"为开始的url,推荐以"~/"开头</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.HtmlHelperExtensions.SetApplicationVirtualPath(System.String)">
+            <summary>
+            设置ApplicationVirtualPath的值，本方法是为单元测试调用，其它请勿调用
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:SchoolPal.Toolkit.Mvc.IMySession">
+            <summary>
+            MySession会话接口定义
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.IMySession.Set``1(System.String,``0)">
+            <summary>
+            设置项
+            清空项时，将value设为null即可
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.IMySession.Get``1(System.String)">
+            <summary>
+            获取项
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SchoolPal.Toolkit.Mvc.IMySession.Item(System.String)">
+            <summary>
+            缓存索引器
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.IMySession.Clear(System.String)">
+            <summary>
+            清除指定会话id的会话，不指定，则清除当前会话
+            </summary>
+            <param name="sessionId"></param>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.IMySession.GetSessionId">
+            <summary>
+            获取会话id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SchoolPal.Toolkit.Mvc.JsonNetModelBinderAttribute">
+            <summary>
+            Json.NET ModelBinder
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Toolkit.Mvc.JsonNetModelBinderAttribute.Settings">
+            <summary>
+            序列化设置,默认
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.JsonNetModelBinderAttribute.GetBinder">
+            <summary>
+            获取绑定器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SchoolPal.Toolkit.Mvc.JsonNetController">
+            <summary>
+            Json方法使用JsonNetResult的Controller，序列化使用Json.NET，以提高性能
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.JsonNetController.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.JsonNetController.#ctor(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="settings">json序列化配置</param>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.JsonNetController.Json(System.Object,System.String,System.Text.Encoding,System.Web.Mvc.JsonRequestBehavior)">
+            <summary>
+            重写原版Json方法，返回JsonNetResult
+            </summary>
+            <param name="data">要输出的数据对象</param>
+            <param name="contentType">内容类型，对应http默认：application/json</param>
+            <param name="contentEncoding">内容编码，默认：空</param>
+            <param name="behavior">是否允许HTTP GET请求</param>
+            <returns></returns>
+        </member>
+        <member name="T:SchoolPal.Toolkit.Mvc.JsonNetResult">
+            <summary>
+            使用Json.NET作为序列化组件的JsonResult实现
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Toolkit.Mvc.JsonNetResult.Settings">
+            <summary>
+            设置或获取Json序列化设置，默认NULL
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Toolkit.Mvc.JsonNetResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            序列化并输出结果
+            </summary>
+            <param name="context">当前会话</param>
+        </member>
+    </members>
+</doc>

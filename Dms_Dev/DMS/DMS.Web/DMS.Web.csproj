@@ -49,6 +49,18 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SchoolPal.Cloud.ServiceModel, Version=2.0.6137.19188, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SchoolPal.Cloud.ServiceModel.2.0.0\lib\net45\SchoolPal.Cloud.ServiceModel.dll</HintPath>
+    </Reference>
+    <Reference Include="SchoolPal.Cloud.ServiceModel.Client, Version=2.0.6137.19235, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SchoolPal.Cloud.ServiceModel.Client.2.0.0\lib\net45\SchoolPal.Cloud.ServiceModel.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="SchoolPal.Cloud.Services.Sms.Sdk, Version=1.0.6352.26668, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SchoolPal.Cloud.Services.Sms.Sdk.1.0.6352.26668\lib\net45\SchoolPal.Cloud.Services.Sms.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="SchoolPal.Toolkit.Mvc, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SchoolPal.Toolkit.Mvc.1.1.0\lib\net45\SchoolPal.Toolkit.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
