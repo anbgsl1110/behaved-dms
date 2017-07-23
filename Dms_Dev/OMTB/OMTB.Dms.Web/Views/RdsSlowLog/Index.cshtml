@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "慢日志列表";
+}
+
+<!--context begin-->
+
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
+    
+    <div class="tabbable" id="tabs-812052">
+        <div class="row">
+            <div class="col-md-pull-4 pull-right">
+                <button type="button" class="btn btn-default" id="btn_select_rdsSlowLog">查询</button>
+                <button type="button" class="btn btn-default" id="btn_Export_rdsSlowLog">导出</button>                    
+            </div>
+            <div class="col-md-pull-4 pull-right"> </div>
+            <div class="col-md-4 pull-right">               
+                <div class="col-md-4 pull-right">
+                    <select class="form-control" id="select_dateRangeList_rdsSlowLog">
+                        <option>前一天</option>
+                        <option>前三天</option>
+                        <option>前七天</option>
+                    </select>
+                </div>
+                <div class="col-md-8 pull-right">
+                    <select class="form-control" id="select_appNameList_rdsSlowLog"></select>
+                </div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#panel-10001" data-toggle="tab">慢日志列表</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="panel-10001">
+                <br>
+                <div class="row-fluid" style="width: 100%; height: 500px" id="table_selectList_rdsSlowLog">
+@*                    <table class="display" id="table_selectListResult_rdsSlowLog_01">
+                        <thead>
+                        <tr>
+                            <th>执行开始时间</th>
+                            <th>SQL语句</th>
+                            <th>数据库名</th>
+                            <th>执行时长(秒)</th>
+                            <th>锁定时长(秒)</th>
+                            <th>解析行数</th>
+                            <th>返回行数</th>
+                        </tr>
+                        </thead>
+                    </table>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+</div>
+<!--context end-->
+
+<script src="/Scripts/app/modules/rdsSlowlog/index.js"></script>
+

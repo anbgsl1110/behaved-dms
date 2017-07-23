@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../Content/css/Site.css">
+</head>
+<body>
+<style>
+    #input_sqlOperation_001{
+        margin-top: -28.4%;
+        margin-left: 71%;
+        width: 50px;
+        height: 22px;
+    }
+    
+    #select_sqlOperation_001{
+        margin-top: -29.4%;
+        margin-left: 50%;
+        width: 80px;
+        height: 22px;
+        padding:0px 0px;
+    }
+    
+    #scol-md-1_sqlOperation_001{
+        margin-top: 0%;
+        margin-left: -1.5%;
+    }
+    
+    #scol-md-1_sqlOperation_002{
+        margin-left: -3%;
+    }
+    
+    #scol-md-1_sqlOperation_003{
+        margin-top: 0%;
+        margin-left: 0.5%;
+    }
+    
+    #scol-md-1_sqlOperation_004{
+        margin-left: -3%;
+    }
+    
+    #span_sqlOperation_001{
+        margin-top: 1%;
+    }
+    
+    #span_sqlOperation_002{
+        margin-top: 1%;
+    }
+</style>
+    <!--context begin-->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div class="tabbable" id="tabs-812052">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-10001" data-toggle="tab">首页</a>
+                        </li>
+                        <li>
+                            <a href="#panel-10002" data-toggle="tab">SQL窗口</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="panel-10001">
+                            <br>
+                            <button type="button" class="btn btn-primary">执行(F8)</button>
+                            <br><br>
+                            
+                            <textarea id="textarea_sqlOperation_001" rows="10" cols="50" style="width: 100%" class="form-control"></textarea>   
+                            <br><br>
+                            <br>
+                            <button type="button" class="btn btn-default pull-right">导出</button>
+                            <br><br>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        编号
+                                    </th>
+                                    <th>
+                                        产品
+                                    </th>
+                                    <th>
+                                        交付时间
+                                    </th>
+                                    <th>
+                                        状态
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        01/04/2012
+                                    </td>
+                                    <td>
+                                        Default
+                                    </td>
+                                </tr>
+                                <tr class="success">
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        01/04/2012
+                                    </td>
+                                    <td>
+                                        Approved
+                                    </td>
+                                </tr>
+                                <tr class="error">
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        02/04/2012
+                                    </td>
+                                    <td>
+                                        Declined
+                                    </td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>
+                                        3
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        03/04/2012
+                                    </td>
+                                    <td>
+                                        Pending
+                                    </td>
+                                </tr>
+                                <tr class="info">
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        04/04/2012
+                                    </td>
+                                    <td>
+                                        Call in to confirm
+                                    </td>
+                                </tr>
+                                <tr class="info">
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        04/04/2012
+                                    </td>
+                                    <td>
+                                        Call in to confirm
+                                    </td>
+                                </tr>
+                                <tr class="info">
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        TB - Monthly
+                                    </td>
+                                    <td>
+                                        04/04/2012
+                                    </td>
+                                    <td>
+                                        Call in to confirm
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <!--分页 begin-->
+                            <div class="col-md-1" id="scol-md-1_sqlOperation_001">
+                                <a href="#" class="btn btn-default btn-xs" role="button"><img class="avatar" src="../Content/image/refresh.png"></a>
+                                <a href="#" class="btn btn-default btn-xs" role="button"><img src="../Content/image/return.png"></a>
+                            </div>
+                            <div class="col-md-1" id="scol-md-1_sqlOperation_002">
+                                <span id="span_sqlOperation_001">当前页</span>&nbsp;
+                                <input id="input_sqlOperation_001" type="text" class="form-control" value="1">
+                            </div>
+                            <div class="col-md-1" id="scol-md-1_sqlOperation_003">
+                                <a href="#" class="btn btn-default btn-xs" role="button"><img src="../Content/image/enter.png"></a>
+                                <a href="#" class="btn btn-default btn-xs" role="button"><img src="../Content/image/playon.png"></a>
+                            </div>
+                            <div class="col-md-1" id="scol-md-1_sqlOperation_004">
+                                <span id="span_sqlOperation_002">每页</span>&nbsp;
+                                <select id="select_sqlOperation_001" class="form-control">
+                                    <option selected = "selected">10</option>
+                                    <option>20</option>
+                                    <option>50</option>
+                                    <option>100</option>
+                                    <option>200</option>
+                                    <option>500</option>
+                                    <option>1000</option>
+                                </select>
+                            </div>
+                            <!--分页 end-->
+                        </div>
+                        <div class="tab-pane" id="panel-10002">
+                            <h2>
+                                SQl窗口留着日后扩展
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+    </div>
+    <!--context end-->
+    
+    <!--jquery-->
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!--bootstrap javascript-->
+    <script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <!--login.js-->
+    <script src="../Scripts/app/modules/sqlOperation/index.js"></script>
+</body>
+</html>

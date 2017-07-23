@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link href="/Content/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/Content/css/site.css" rel="stylesheet"/>
+    <link href="/Content/css/jquery.dataTables.css" rel="stylesheet"/>
+    <script src="/Scripts/app/lib/modernizr-2.6.2.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">短信验证登录到DMS</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="check-warning" role="alert" id="smsCodeWarning" >&nbsp;</p>
+                        <div class="form-group">
+                            <label class="form-control-label required" for="user_phone">内置手机号码：</label>
+                            <input autofocus="autofocus" class="form-control" type="text" value="@ViewBag.Phone" id="user_phone" readonly="readonly"/>
+                            <button class="btn btn-success getvalidatecode-btn-style" id="smsButton">获取验证码</button>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label required" for="user_validateCode">验证码：</label>
+                            <input class="form-control" type="text" placeholder="请输入验证码" id="user_validateCode" />
+                        </div>
+        
+                        <input value="登录" class="btn btn-primary btn-lg btn-block" id="SignIn" readonly="readonly"/>                  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/app/lib/jquery-1.10.2.js"></script>
+    <script src="/Scripts/app/lib/jquery.dataTables.js"></script>
+    
+    <script src="/Scripts/app/lib/bootstrap.js"></script>
+    <script src="/Scripts/app/lib/respond.js"></script>
+    
+    <script src="/Scripts/app/commonFilter.js"></script>
+    <script src="/Scripts/app/errorMessage.js"></script>
+    
+    <script src="/Scripts/app/modules/login/login.js"></script>
+</body>
+</html>

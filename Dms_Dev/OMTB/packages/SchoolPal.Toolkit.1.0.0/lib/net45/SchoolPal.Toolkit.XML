@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SchoolPal.Toolkit</name>
+    </assembly>
+    <members>
+        <member name="T:SchoolPal.Toolkit.SuperTo">
+            <summary>
+            此类尚在设计中
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Toolkit.SuperTo.To``1(System.Object)">
+            <summary>
+            类型转换
+            支持值类型之间的转换
+            支持object to object
+            </summary>
+            <typeparam name="T">要转换的结果类型</typeparam>
+            <param name="sourceObj">原对象实例</param>
+            <returns>返回转换后的结果</returns>
+        </member>
+        <member name="M:SchoolPal.Toolkit.SuperTo.To``1(System.Object,``0)">
+            <summary>
+            类型转换
+            支持值类型之间的转换
+            支持object to object
+            </summary>
+            <typeparam name="T">要转换的结果类型</typeparam>
+            <param name="sourceObj">原对象实例</param>
+            <param name="t">要转换的结果类型，这个参数主要为了支持匿名类型</param>
+            <returns>返回转换后的结果</returns>
+        </member>
+        <member name="M:SchoolPal.Toolkit.SuperTo.To(System.Object,System.Type)">
+            <summary>
+            类型转换
+            支持值类型之间的转换
+            支持object to object
+            </summary>
+            <param name="sourceObj">原对象实例</param>
+            <param name="targetType">要转换的结果类型</param>
+            <returns>返回转换后的结果</returns>
+        </member>
+        <member name="M:SchoolPal.Toolkit.SuperTo.InternalTo(System.Object,System.Type,System.Type,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="sourceObj"></param>
+            <param name="targetType"></param>
+            <param name="rootType">根类型</param>
+            <param name="deep">记录object引用类型深度，不能超过2（防止循环引用导致的死循环）</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolPal.Toolkit.SuperTo.CreateInstance(System.Type,System.Object,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="sourceObj"></param>
+            <param name="sourceType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SchoolPal.Toolkit.ValidateCodeGenerator">
+            <summary>
+            验证码及验证码图片生成器
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Toolkit.ValidateCodeGenerator.MaxLength">
+            <summary>
+            验证码的最大长度
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Toolkit.ValidateCodeGenerator.MinLength">
+            <summary>
+            验证码的最小长度
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Toolkit.ValidateCodeGenerator.CreateValidateCode(System.Int32)">
+            <summary>
+            生成验证码
+            </summary>
+            <param name="length">指定验证码的长度,默认为4</param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolPal.Toolkit.ValidateCodeGenerator.CreateValidateGraphic(System.String,System.Int32,System.Int32)">
+            <summary>
+            创建验证码图片，以byte[]形式返回
+            </summary>
+            <param name="validateCode">验证码字符串</param>
+            <param name="width">图片宽度</param>
+            <param name="height">图片高度</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

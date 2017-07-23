@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <configSections xdt:Transform="InsertIfMissing">
+    <section name="schoolpal.cloud.serviceModel" type="SchoolPal.Cloud.ServiceModel.Config.ServiceConfigSection, SchoolPal.Cloud.ServiceModel.Client" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"/>
+  </configSections>
+  <schoolpal.cloud.serviceModel xdt:Transform="InsertIfMissing">
+    <services xdt:Transform="InsertIfMissing">
+      <service name="SmsService" url="http://192.168.5.208:50890/SmsService/" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"/>
+    </services>
+  </schoolpal.cloud.serviceModel>
+</configuration>

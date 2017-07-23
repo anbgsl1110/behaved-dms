@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="/Content/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/Content/css/site.css" rel="stylesheet"/>
+    <link href="/Content/css/jquery.dataTables.css" rel="stylesheet"/>
+
+    <script src="/Scripts/app/lib/modernizr-2.6.2.js"></script>
+    <script src="/Scripts/app/lib/jquery-1.10.2.js"></script>
+    <script src="/Scripts/app/lib/jquery.dataTables.js"></script>
+    
+    <script src="/Scripts/app/lib/bootstrap.js"></script>
+    <script src="/Scripts/app/lib/respond.js"></script>
+    
+    <script src="/Scripts/app/commonFilter.js"></script>
+    <script src="/Scripts/app/errorMessage.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">数据管理</div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Sql操作", "Index", "SqlOperation")</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li id = "link_Home_rdsSlowLog">@Html.ActionLink("Rds慢日志", "Index", "RdsSlowLog")</li>
+                </ul>
+                @if (Session["CU-Ip"] != null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a>你好，@Session["CU-Ip"].ToString()</a></li>
+                    </ul>
+                }               
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid body-content">
+        <br>
+        <div class="row-fluid pre-scrollable mybody">
+            @RenderBody()
+        </div>
+    </div>
+        
+    <div class="container-fluid myfooter hidden-print">
+        <div class="row-fluid">
+            <hr />
+            <footer>
+                <p>&copy;@DateTime.Now.Year 校宝在线 - 数据管理</p>
+            </footer>
+        </div>
+    </div>
+    
+</body>
+</html>

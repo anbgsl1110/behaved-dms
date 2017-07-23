@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SchoolPal.Cloud.ServiceModel</name>
+    </assembly>
+    <members>
+        <member name="T:SchoolPal.Cloud.ServiceModel.NamespaceDoc">
+            <summary>
+            包含校宝云服务公共类及SDK组件
+            </summary>
+        </member>
+        <member name="T:SchoolPal.Cloud.ServiceModel.PageArgument">
+            <summary>
+            分页请求
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Cloud.ServiceModel.PageArgument.PageIndex">
+            <summary>
+            请求页码
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Cloud.ServiceModel.PageArgument.PageSize">
+            <summary>
+            每页记录数
+            </summary>
+        </member>
+        <member name="T:SchoolPal.Cloud.ServiceModel.PageResult`1">
+            <summary>
+            分页返回数据
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SchoolPal.Cloud.ServiceModel.PageResult`1.TotalCount">
+            <summary>
+            总记录数
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Cloud.ServiceModel.PageResult`1.CurrentIndex">
+            <summary>
+            当前页码
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Cloud.ServiceModel.PageResult`1.ItemCount">
+            <summary>
+            返回的记录数
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Cloud.ServiceModel.PageResult`1.List">
+            <summary>
+            返回数据列表
+            </summary>
+        </member>
+        <member name="T:SchoolPal.Cloud.ServiceModel.CloudServiceAttribute">
+            <summary>
+            标识接口为Service，只有标识成为CloudService的接口才可以被识别为服务
+            </summary>
+            <example>
+            <code>
+            [CloudService]
+            public interface IMyService
+            {
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:SchoolPal.Cloud.ServiceModel.CloudServiceException">
+            <summary>
+            表示一个从服务端捕获的异常
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.CloudServiceException.#ctor">
+            <summary>
+            构造一个CloudServiceException实例
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.CloudServiceException.#ctor(System.String)">
+            <summary>
+            构造一个CloudServiceException实例
+            </summary>
+            <param name="message">异常信息</param>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.CloudServiceException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造一个CloudServiceException实例
+            </summary>
+            <param name="message">异常信息</param>
+            <param name="innerException">内部异常</param>
+        </member>
+        <member name="T:SchoolPal.Cloud.ServiceModel.SR">
+            <summary>
+            ServiceResult帮助类
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.SR.Create``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.SR.Create``1(``0,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+            <param name="success"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.SR.Create``2(``0,``1)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="U"></typeparam>
+            <param name="state"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.SR.Create``2(``0,System.Boolean,``1)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="U"></typeparam>
+            <param name="state"></param>
+            <param name="success"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SchoolPal.Cloud.ServiceModel.ServiceResult`1">
+            <summary>
+            表示服务返回结果
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.ServiceResult`1.#ctor">
+            <summary>
+            构造一个服务返回结果
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.ServiceResult`1.#ctor(`0,System.Boolean)">
+            <summary>
+            构造一个服务返回结果
+            </summary>
+            <param name="state">结果状态</param>
+            <param name="success">是否执行成功</param>
+        </member>
+        <member name="P:SchoolPal.Cloud.ServiceModel.ServiceResult`1.Success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:SchoolPal.Cloud.ServiceModel.ServiceResult`1.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:SchoolPal.Cloud.ServiceModel.ServiceResult`2">
+            <summary>
+            表示服务返回结果
+            </summary>
+            <typeparam name="T">结果状态的类型</typeparam>
+            <typeparam name="U">结果数据的类型</typeparam>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.ServiceResult`2.#ctor">
+            <summary>
+            构造一个服务返回结果
+            </summary>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.ServiceResult`2.#ctor(`0,System.Boolean)">
+            <summary>
+            构造一个服务返回结果
+            </summary>
+            <param name="state">结果状态</param>
+            <param name="success">是否成功</param>
+        </member>
+        <member name="M:SchoolPal.Cloud.ServiceModel.ServiceResult`2.#ctor(`0,System.Boolean,`1)">
+            <summary>
+            构造一个服务返回结果
+            </summary>
+            <param name="state">结果状态</param>
+            <param name="success">是否成功</param>
+            <param name="data">结果数据</param>
+        </member>
+        <member name="P:SchoolPal.Cloud.ServiceModel.ServiceResult`2.Data">
+            <summary>
+            结果数据
+            </summary>
+        </member>
+    </members>
+</doc>
