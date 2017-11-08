@@ -1,0 +1,12 @@
+* behaved-dms
+** 介绍
+是一个简单的数据管理工具。
+** 当前功能
+1. 多数据库使用sql查询数据和导出查询结果
+2. 阿里云多数据库实例慢日志汇总查询
+** 使用技术
+- asp.net mvc
+- ef
+- dapper
+- jquery
+- datatables
