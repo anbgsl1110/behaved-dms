@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMTB.Dms.Test", "OMTB.Dms.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMTB.Dms.Web", "OMTB.Dms.Web\OMTB.Dms.Web.csproj", "{33A01520-FB00-4612-BF21-ED0D89446398}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbDocGenerate", "OMTB.DbDocGenerate\OMTB.DbDocGenerate.csproj", "{4D5A68E1-A7DC-4C18-8718-C54107CEE7FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{33A01520-FB00-4612-BF21-ED0D89446398}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33A01520-FB00-4612-BF21-ED0D89446398}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33A01520-FB00-4612-BF21-ED0D89446398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D5A68E1-A7DC-4C18-8718-C54107CEE7FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5A68E1-A7DC-4C18-8718-C54107CEE7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D5A68E1-A7DC-4C18-8718-C54107CEE7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D5A68E1-A7DC-4C18-8718-C54107CEE7FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

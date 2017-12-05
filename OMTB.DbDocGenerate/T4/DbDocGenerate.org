@@ -1,0 +1,10 @@
+﻿
+
+#+title:Study数据库文档
+#+date:12/05/2017 19:58:05
+#+author:jiayongliang
+#+options: toc:3 ^:nil
+#+html_head: <link rel="stylesheet" href="https://www.anbgsl1110-dms-aliang.space/css/org3.css" type="text/css"/>
+* 介绍
+用来生成study项目数据库表和表字段相关文档，可使用Ctrl + S 保存T4模板进行更新文档，方便查阅。
+* 数据库文档

@@ -1,0 +1,62 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ include file="Func.ttinclude" #>
+<#@ output extension=".org" #>
+#+title:Study数据库文档
+#+date:<#=DateTime.Now#>
+#+author:jiayongliang
+#+options: toc:3 ^:nil
+#+html_head: <link rel="stylesheet" href="https://www.anbgsl1110-dms-aliang.space/css/org3.css" type="text/css"/>
+* 介绍
+用来生成study项目数据库表和表字段相关文档，可使用Ctrl + S 保存T4模板进行更新文档，方便查阅。
+* 数据库文档
+<#
+//System.Diagnostics.Debugger.Launch(); //取消注释以调试 头部修改debug="true"
+InitData();
+#>
+<# for (int i = 0; i < _modules.Count; i++)
+{
+    var moduleName = _modules[i].ToString();
+	#>** <#=moduleName#><#
+    _tables.ForEach(x =>
+    {
+        if(x.ModuleName == moduleName)
+        {#>
+
+<#
+            var tableName = x.TableName;
+			#>*** <#=tableName#><#
+            var tableComment = x.TableComment != null ? x.TableComment : "";
+			#>
+
+<#=tableComment#><#
+
+            var fieldList = x.FieldList;
+            if(fieldList != null)
+            {#>
+
+| 序号 | 列名      | 数据类型（服务端） | 注释     |
+|------+-----------+--------------------+----------|
+<#
+				for(int j = 0; j < fieldList.Count; j++)
+				{
+				    var fieldName = fieldList[j].FieldName;
+                    var fieldType = fieldList[j].FieldType;
+                    var fieldComment = fieldList[j].FieldComment;
+					#>
+|<#=j#> | <#=fieldName#>| <#=fieldType#>| <#=fieldComment#>|
+|------+-----------+--------------------+----------|
+<#
+				}
+            }
+        }
+    });
+	#>
+
+<#
+} #>
+* 备注
+创建时间： 2017/11/10 更新时间： <#=DateTime.Now.ToShortDateString()#>

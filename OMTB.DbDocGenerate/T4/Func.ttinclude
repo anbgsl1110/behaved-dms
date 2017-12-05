@@ -1,0 +1,210 @@
+﻿<#@ assembly name="System.Xml"#>
+<#@ assembly name="System.ComponentModel.DataAnnotations"#>
+<#@ import namespace="System"#>
+<#@ import namespace="System.Reflection"#>
+<#@ import namespace="System.IO"#>
+<#@ import namespace="System.Collections.Generic"#>
+<#@ import namespace="System.Linq"#>
+<#@ import namespace="System.Xml"#>
+<#@ import namespace="System.ComponentModel.DataAnnotations"#>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating"#>
+
+<#+ 
+List<XmlElement> _commentInfo = new List<XmlElement>();
+List<TableModel> _tables = new List<TableModel>();
+List<string> _modules = new List<string>();
+string x = "";
+#>
+<#+
+void InitData()
+{
+    var projectPath = Host.ResolveAssemblyReference("$(ProjectDir)");
+    var xmlCommentFilePath = projectPath + "\\bin\\Debug\\MySql.Data.xml";
+    _commentInfo = this.GetCommentInfo(xmlCommentFilePath);
+    
+	x =  Host.ResolveAssemblyReference("$(SolutionDir)");
+
+    var entityFilePath = Directory.GetParent(projectPath).Parent.FullName;           
+    this.GetTableModels(entityFilePath);
+
+    var dllFilePath = projectPath;
+    Assembly assembly = LoadAssembly(dllFilePath);
+    this.GetEntity(assembly);
+
+	_modules = _tables.GroupBy(x => x.ModuleName).Select(g => g.Key).ToList();
+}
+
+/// <summary>
+/// 加载程序集
+/// </summary>
+/// <param name="dllfilePath"></param>
+/// <returns></returns>
+Assembly LoadAssembly(string dllfilePath)
+{
+    MemoryStream memStream;
+    using(FileStream stream = new FileStream(dllfilePath, FileMode.Open))
+    {
+        using (memStream = new MemoryStream())
+        {
+            int res;
+            byte[] b = new byte[4096];
+            while ((res = stream.Read(b, 0, b.Length)) > 0)
+            {
+                memStream.Write(b, 0, b.Length);
+            }
+        }
+    }
+    try{
+        var ass = Assembly.Load(memStream.ToArray()); //这样加载防止文件被锁定
+        return ass;
+    }catch(Exception e)
+    {
+        return null;
+    }
+}
+
+/// <summary>
+/// 从程序集收集实体类型
+/// </summary>
+private void GetEntity(Assembly ass)
+{
+    var entity = new List<Type>();
+    if (ass == null) return;
+    var types = ass.GetTypes();
+    foreach (Type type in types)
+    {
+        if (type.Name.EndsWith("Info") && type.IsClass)
+        {
+            var tableModel = this._tables.Where(x => x.TableName == type.Name).FirstOrDefault();
+            if (tableModel == null) continue;
+            tableModel.TableName = tableModel.ModuleName + "_" + type.Name.Substring(0, type.Name.Length - 4);
+
+            var xml = this._commentInfo.FirstOrDefault(x => x.Attributes["name"].Value == ("T:" + type.FullName));                    
+            if(xml != null)
+            {
+                var commentInfo = xml.InnerXml.Trim().Split(new string[] { "\r" }, StringSplitOptions.RemoveEmptyEntries);
+                tableModel.TableComment = commentInfo.Length > 1 ? commentInfo[1].Trim() : string.Empty;
+                
+            }
+
+            List<FieldModel> fieldModels = new List<FieldModel>();
+            var propertyInfos = type.GetProperties();
+            foreach(var propertyinfo in propertyInfos)
+            {
+                fieldModels.Add(new FieldModel
+                {
+                    FieldName = propertyinfo.Name,
+                    FieldType = propertyinfo.PropertyType.Name,
+                    FieldComment = GetDisplayValue(propertyinfo)
+                });
+            }
+            tableModel.FieldList = fieldModels;
+        }
+    }
+}
+
+/// <summary>
+/// 从文件系统获取表信息
+/// </summary>
+/// <param name="entityFilePath"></param>
+private void GetTableModels(string entityFilePath)
+{
+    var entityFileDirectory = new DirectoryInfo(entityFilePath);
+    var subDirectory = entityFileDirectory.GetDirectories();
+    foreach(DirectoryInfo dir in subDirectory)
+    {
+        var files = dir.GetFiles();
+        foreach(FileInfo file in files)
+        {
+            if (file.Name.EndsWith("Info.cs"))
+            {
+                var tempTableModule = new TableModel
+                {                            
+                    ModuleName = dir.Name,
+                    //去掉文件后缀名.cs
+                    TableName = file.Name.Substring(0, file.Name.Length - 3)
+                };
+                this._tables.Add(tempTableModule);
+            }       
+        }
+    }
+}
+
+/// <summary>
+/// 从xml中获取注释信息
+/// </summary>
+/// <param name="xmlCommentFilePath"></param>
+/// <returns></returns>
+private List<XmlElement> GetCommentInfo(string xmlCommentFilePath)
+{
+    XmlDocument xmlDoc = new XmlDocument {PreserveWhitespace = true};
+    xmlDoc.Load(xmlCommentFilePath);
+    if (xmlDoc.DocumentElement != null)
+    {
+        var members = xmlDoc.DocumentElement.GetElementsByTagName("member");
+        return members.Cast<XmlElement>().ToList();
+    }
+    return null;
+}
+
+/// <summary>
+/// 获取字段Display的值
+/// </summary>
+/// <param name="propertyInfo"></param>
+/// <returns></returns>
+private string GetDisplayValue(PropertyInfo propertyInfo)
+{
+    DisplayAttribute displayAttribute = Attribute.GetCustomAttribute(propertyInfo, typeof(DisplayAttribute)) as DisplayAttribute;
+
+    return displayAttribute == null ? propertyInfo.Name : displayAttribute.Name;
+}
+#>
+<#+ 
+/// <summary>
+/// 表模型
+/// </summary>
+public class TableModel
+{
+    /// <summary>
+    /// 模块名称
+    /// </summary>
+    public string ModuleName { get; set; }
+
+    /// <summary>
+    /// 表名称
+    /// </summary>
+    public string TableName { get; set; }
+
+    /// <summary>
+    /// 表注释
+    /// </summary>
+    public string TableComment { get; set; }
+
+    /// <summary>
+    /// 字段列表
+    /// </summary>
+    public IList<FieldModel> FieldList { get; set; }
+}
+
+/// <summary>
+/// 字段模型
+/// </summary>
+public class FieldModel
+{
+    /// <summary>
+    /// 字段名称
+    /// </summary>
+    public string FieldName { get; set; }
+
+    /// <summary>
+    /// 字段类型
+    /// </summary>
+    public string FieldType { get; set; }
+
+    /// <summary>
+    /// 字段注释
+    /// </summary>
+    public string FieldComment { get; set; }
+}
+#>
+
